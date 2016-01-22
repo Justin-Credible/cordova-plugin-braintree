@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="cordova-plugin-braintree"
+        version="0.1.0">
+
+    <name>Braintree Plugin</name>
+
+    <description>
+        A Cordova plugin for the Braintree mobile payment processing SDK.
+    </description>
+
+    <license>MIT</license>
+
+    <!-- JavaScript Interface -->
+    <js-module src="www/braintree-plugin.js" name="BraintreePlugin">
+        <clobbers target="BraintreePlugin" />
+    </js-module>
+
+    <!-- Android Configuration -->
+    <!--
+    <platform name="android">
+
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="BraintreePlugin">
+                <param name="android-package" value="net.justincredible.BraintreePlugin" />
+            </feature>
+        </config-file>
+
+        <source-file src="src/android/BraintreePlugin.java" target-dir="src/net/justincredible" />
+
+    </platform>
+    -->
+
+    <!-- iOS Configuration -->
+    <platform name="ios">
+
+        <config-file target="config.xml" parent="/*">
+            <feature name="BraintreePlugin">
+                <param name="ios-package" value="BraintreePlugin" />
+            </feature>
+        </config-file>
+
+        <header-file src="src/ios/BraintreePlugin.h" />
+        <source-file src="src/ios/BraintreePlugin.m" />
+
+        <framework src="lib/ios/BraintreeVenmo.framework" custom="true" />
+        <framework src="lib/ios/BraintreeUI.framework" custom="true" />
+        <framework src="lib/ios/BraintreePayPal.framework" custom="true" />
+        <framework src="lib/ios/BraintreeDataCollector.framework" custom="true" />
+        <framework src="lib/ios/BraintreeCore.framework" custom="true" />
+        <framework src="lib/ios/BraintreeCard.framework" custom="true" />
+        <framework src="lib/ios/BraintreeApplePay.framework" custom="true" />
+        <framework src="lib/ios/Braintree3DSecure.framework" custom="true" />
+
+    </platform>
+
+</plugin>

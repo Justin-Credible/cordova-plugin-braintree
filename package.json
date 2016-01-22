@@ -1,0 +1,25 @@
+{
+  "name": "cordova-plugin-braintree",
+  "version": "0.1.0",
+  "description": "A Cordova plugin for the Braintree mobile payment processing SDK.",
+  "cordova": {
+    "id": "cordova-plugin-braintree",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/justin-credible/cordova-plugin-braintree"
+  },
+  "keywords": [
+    "cordova",
+    "braintree",
+    "payment",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "license": "MIT"
+}

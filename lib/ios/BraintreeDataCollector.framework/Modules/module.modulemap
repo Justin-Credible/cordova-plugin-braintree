@@ -1,0 +1,6 @@
+framework module BraintreeDataCollector {
+  umbrella header "BraintreeDataCollector.h"
+
+  export *
+  module * { export * }
+}
