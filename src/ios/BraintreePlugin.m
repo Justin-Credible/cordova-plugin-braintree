@@ -132,6 +132,7 @@ NSString *dropInUIcallbackId;
                                                       messageAsDictionary:dictionary];
 
         [self.commandDelegate sendPluginResult:pluginResult callbackId:dropInUIcallbackId];
+        dropInUIcallbackId = nil;
     }
 }
 
@@ -150,6 +151,7 @@ NSString *dropInUIcallbackId;
                                                       messageAsDictionary:dictionary];
 
         [self.commandDelegate sendPluginResult:pluginResult callbackId:dropInUIcallbackId];
+        dropInUIcallbackId = nil;
     }
 }
 
@@ -165,6 +167,7 @@ NSString *dropInUIcallbackId;
                                                       messageAsDictionary:dictionary];
 
         [self.commandDelegate sendPluginResult:pluginResult callbackId:dropInUIcallbackId];
+        dropInUIcallbackId = nil;
     }
 }
 

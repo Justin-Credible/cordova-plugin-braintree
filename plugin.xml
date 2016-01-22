@@ -2,7 +2,7 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
         xmlns:android="http://schemas.android.com/apk/res/android"
         id="cordova-plugin-braintree"
-        version="0.1.0">
+        version="0.2.0">
 
     <name>Braintree Plugin</name>
 
@@ -18,7 +18,6 @@
     </js-module>
 
     <!-- Android Configuration -->
-    <!--
     <platform name="android">
 
         <config-file target="res/xml/config.xml" parent="/*">
@@ -29,8 +28,9 @@
 
         <source-file src="src/android/BraintreePlugin.java" target-dir="src/net/justincredible" />
 
+        <framework src="src/android/build-extras.gradle" custom="true" type="gradleReference" />
+
     </platform>
-    -->
 
     <!-- iOS Configuration -->
     <platform name="ios">
