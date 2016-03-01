@@ -4,6 +4,8 @@ This is a [Cordova](http://cordova.apache.org/) plugin for the [Braintree](https
 
 This version of the plugin uses versions `4.1.3` (iOS) and `2.1.2` (Android) of the Braintree mobile SDK. Documentation for the Braintree SDK can be found [here](https://developers.braintreepayments.com/start/overview).
 
+**This plugin is still in development.**
+
 # Install
 
 To add the plugin to your Cordova project, simply add the plugin from the npm registry:
@@ -20,7 +22,7 @@ The plugin is available via a global variable named `BraintreePlugin`. It expose
 
 All functions accept optional success and failure callbacks as their last two arguments, where the failure callback will receive an error string as an argument unless otherwise noted.
 
-A TypeScript definition file for the JavaScript interface is available in the `typings` directory. <!-- TODO: as well as on [DefinitelyTyped](https://github.com/borisyankov/DefinitelyTyped) via the `tsd` tool. -->
+A TypeScript definition file for the JavaScript interface is available in the `typings` directory as well as on [DefinitelyTyped](https://github.com/borisyankov/DefinitelyTyped) via the `tsd` tool.
 
 ## Initialize Braintree Client ##
 
@@ -54,7 +56,7 @@ Method Signature:
 
 Parameters:
 
-* `options` (string): An optional argument used to configure the payment UI.
+* `options` (object): An optional argument used to configure the payment UI; see type definition for parameters.
 
 Example Usage:
 
