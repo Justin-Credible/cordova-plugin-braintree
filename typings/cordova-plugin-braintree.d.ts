@@ -91,7 +91,7 @@ declare module BraintreePlugin {
              * BTCardNetworkUKMaestro
              */
             network: string;
-        }
+        };
 
         /**
          * Information about the PayPal account used to complete a payment (if a PayPal account was used).
@@ -105,13 +105,13 @@ declare module BraintreePlugin {
             shippingAddress: string;
             clientMetadataId: string;
             payerId: string;
-        }
+        };
 
         /**
          * Information about the Apple Pay card used to complete a payment (if Apple Pay was used).
          */
         applePaycard: {
-        }
+        };
 
         /**
          * Information about 3D Secure card used to complete a payment (if 3D Secure was used).
@@ -119,14 +119,14 @@ declare module BraintreePlugin {
         threeDSecureCard: {
             liabilityShifted: boolean;
             liabilityShiftPossible: boolean;
-        }
+        };
 
         /**
          * Information about Venmo account used to complete a payment (if a Venmo account was used).
          */
         venmoAccount: {
             username: string;
-        }
+        };
     }
 }
 

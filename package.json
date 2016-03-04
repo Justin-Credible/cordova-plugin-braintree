@@ -21,5 +21,8 @@
     "cordova-android",
     "cordova-ios"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "xcode": "git://github.com/alunny/node-xcode.git#be6005e97ebbda7826e4222f64d9d19d3190f1e2"
+  }
 }
