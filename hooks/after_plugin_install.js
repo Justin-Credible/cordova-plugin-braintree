@@ -75,7 +75,7 @@ module.exports = function(context) {
 		xcodeProject.addBuildProperty("LD_RUNPATH_SEARCH_PATHS", "\"$(inherited) @executable_path/Frameworks\"", "Debug");
 		xcodeProject.addBuildProperty("LD_RUNPATH_SEARCH_PATHS", "\"$(inherited) @executable_path/Frameworks\"", "Release");
 
-		// Add the frameworks again.  Use the sign=true this time so they get code signed when being deployed to devices.
+		// Add the frameworks again.  This time they will have the code-sign option set so they get code signed when being deployed to devices.
 		xcodeProject.addFramework(frameworkPath + "BraintreeVenmo.framework", {customFramework: true, embed: true, link: true});
                 xcodeProject.addFramework(frameworkPath + "BraintreeUI.framework", {customFramework: true, embed: true, link: true});
                 xcodeProject.addFramework(frameworkPath + "BraintreePayPal.framework", {customFramework: true, embed: true, link: true});
