@@ -51,9 +51,14 @@ BraintreePlugin.presentDropInPaymentUI = function showDropInUI(options, successC
         options.title = "";
     };
 
+    if (typeof(options.ctaText) !== "string") {
+        options.ctaText = "Select Payment Method";
+    };
+
     var pluginOptions = [
         options.cancelText,
-        options.title
+        options.title,
+        options.ctaText
     ];
 
     exec(successCallback, failureCallback, PLUGIN_ID, "presentDropInPaymentUI", pluginOptions);
