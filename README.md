@@ -63,7 +63,8 @@ Example Usage:
 ```
 var options = {
     cancelText: "Cancel",
-    title: "Purchase"
+    title: "Purchase",
+    ctaText: "Select Payment Method"
 };
 
 BraintreePlugin.presentDropInPaymentUI(options, function (result) {

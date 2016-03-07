@@ -31,8 +31,24 @@ declare module BraintreePlugin {
      * Options for the presentDropInPaymentUI method.
      */
     interface PaymentUIOptions {
+
+        /**
+         * Text to show on the cancel button.
+         * Defaults to "Cancel".
+         */
         cancelText?: string;
+
+        /**
+         * Text to show on the title of the drop-in UI.
+         * Defaults to empty string.
+         */
         title?: string;
+
+        /**
+         * Text to show on the call to action button in the drop-in UI.
+         * Defaults to "Select Payment Method".
+         */
+        ctaText?: string;
     }
 
     /**
