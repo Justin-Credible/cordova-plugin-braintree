@@ -100,8 +100,8 @@ public final class BraintreePlugin extends CordovaPlugin {
         }
 
         // Ensure we have the correct number of arguments.
-        if (args.length() != 2) {
-            callbackContext.error("cancelText and title are required.");
+        if (args.length() != 3) {
+            callbackContext.error("cancelText, ctaText and title are required.");
             return;
         }
 
@@ -120,8 +120,15 @@ public final class BraintreePlugin extends CordovaPlugin {
             callbackContext.error("title is required.");
         }
 
+        String ctaText = args.getString(2);
+
+        if (ctaText == null) {
+            callbackContext.error("ctaText is required.");
+        }
+
         paymentRequest.actionBarTitle(title);
         //paymentRequest.cancelButtonText(cancelText);//TODO
+        paymentRequest.submitButtonText(ctaText);
 
         this.cordova.setActivityResultCallback(this);
         this.cordova.startActivityForResult(this, paymentRequest.getIntent(this.cordova.getActivity()), DROP_IN_REQUEST);
