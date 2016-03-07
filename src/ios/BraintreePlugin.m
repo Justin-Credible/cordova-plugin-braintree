@@ -6,6 +6,7 @@
 
 #import "BraintreePlugin.h"
 #import <objc/runtime.h>
+#import <BraintreeUI/BTPaymentRequest.h>
 #import <BraintreeUI/BTDropInViewController.h>
 #import <BraintreeCore/BTAPIClient.h>
 #import <BraintreeCore/BTPaymentMethodNonce.h>
@@ -67,8 +68,8 @@ NSString *dropInUIcallbackId;
     }
 
     // Ensure we have the correct number of arguments.
-    if ([command.arguments count] != 2) {
-        CDVPluginResult *res = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"cancelText and title are required."];
+    if ([command.arguments count] != 3) {
+        CDVPluginResult *res = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"cancelText, ctaText and title are required."];
         [self.commandDelegate sendPluginResult:res callbackId:command.callbackId];
         return;
     }
@@ -91,6 +92,14 @@ NSString *dropInUIcallbackId;
         return;
     }
 
+    NSString* ctaText = [command.arguments objectAtIndex:2];
+    
+    if (!ctaText) {
+        CDVPluginResult *res = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"ctaText is required."];
+        [self.commandDelegate sendPluginResult:res callbackId:command.callbackId];
+        return;
+    }
+
     // Save off the Cordova callback ID so it can be used in the completion handlers.
     dropInUIcallbackId = command.callbackId;
 
@@ -108,7 +117,8 @@ NSString *dropInUIcallbackId;
                                      action:@selector(userDidCancelPayment)];
 
     dropInViewController.navigationItem.leftBarButtonItem = cancelButton;
-
+    dropInViewController.paymentRequest.callToActionText = ctaText;
+    
     // Setup the dialog's title.
     dropInViewController.title = title;
 
@@ -304,3 +314,4 @@ NSString *dropInUIcallbackId;
 }
 
 @end
+

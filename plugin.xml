@@ -12,7 +12,7 @@
 
     <license>MIT</license>
 
-    <hook type="before_plugin_install" src="hooks/before_plugin_install.js" />
+    <hook type="after_plugin_install" src="hooks/after_plugin_install.js" />
 
     <!-- JavaScript Interface -->
     <js-module src="www/braintree-plugin.js" name="BraintreePlugin">
