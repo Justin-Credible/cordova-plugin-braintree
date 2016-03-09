@@ -64,7 +64,10 @@ Example Usage:
 var options = {
     cancelText: "Cancel",
     title: "Purchase",
-    ctaText: "Select Payment Method"
+    ctaText: "Select Payment Method",
+    amount: "$49.99",
+    primaryDescription: "Your Item",
+    secondaryDescription :"Free shipping!"
 };
 
 BraintreePlugin.presentDropInPaymentUI(options, function (result) {

@@ -68,8 +68,8 @@ NSString *dropInUIcallbackId;
     }
 
     // Ensure we have the correct number of arguments.
-    if ([command.arguments count] != 3) {
-        CDVPluginResult *res = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"cancelText, ctaText and title are required."];
+    if ([command.arguments count] != 6) {
+        CDVPluginResult *res = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"cancelText, ctaText, title, amount, primaryDescription, and secondaryDescription are required."];
         [self.commandDelegate sendPluginResult:res callbackId:command.callbackId];
         return;
     }
@@ -100,6 +100,30 @@ NSString *dropInUIcallbackId;
         return;
     }
 
+    NSString* amount = [command.arguments objectAtIndex:3];
+    
+    if (!amount) {
+        CDVPluginResult *res = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"amount is required."];
+        [self.commandDelegate sendPluginResult:res callbackId:command.callbackId];
+        return;
+    }
+
+    NSString* primaryDescription = [command.arguments objectAtIndex:4];
+    
+    if (!primaryDescription) {
+        CDVPluginResult *res = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"primaryDescription is required."];
+        [self.commandDelegate sendPluginResult:res callbackId:command.callbackId];
+        return;
+    }
+
+    NSString* secondaryDescription = [command.arguments objectAtIndex:5];
+    
+    if (!secondaryDescription) {
+        CDVPluginResult *res = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"secondaryDescription is required."];
+        [self.commandDelegate sendPluginResult:res callbackId:command.callbackId];
+        return;
+    }
+    
     // Save off the Cordova callback ID so it can be used in the completion handlers.
     dropInUIcallbackId = command.callbackId;
 
@@ -118,6 +142,9 @@ NSString *dropInUIcallbackId;
 
     dropInViewController.navigationItem.leftBarButtonItem = cancelButton;
     dropInViewController.paymentRequest.callToActionText = ctaText;
+    dropInViewController.paymentRequest.amount = amount;
+    dropInViewController.paymentRequest.summaryTitle = primaryDescription;
+    dropInViewController.paymentRequest.summaryDescription = secondaryDescription;
     
     // Setup the dialog's title.
     dropInViewController.title = title;

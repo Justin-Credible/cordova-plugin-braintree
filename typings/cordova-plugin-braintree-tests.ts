@@ -6,8 +6,11 @@ BraintreePlugin.initialize("a", () => {}, () => {});
 
 var paymentUIOptions: BraintreePlugin.PaymentUIOptions = {
     cancelText: "Cancel",
-    title: "Title",
-    ctaText: "Call to Action"
+    title: "Purchase",
+    ctaText: "Select Payment Method",
+    amount: "$49.99",
+    primaryDescription: "Your Item",
+    secondaryDescription: "Free shipping!"
 };
 
 BraintreePlugin.presentDropInPaymentUI();

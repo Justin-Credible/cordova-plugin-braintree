@@ -49,6 +49,27 @@ declare module BraintreePlugin {
          * Defaults to "Select Payment Method".
          */
         ctaText?: string;
+
+        /**
+         * The amount of the transaction to show in the drop-in UI on the
+         * summary row as well as the call to action button.
+         * Defaults to empty string.
+         */
+        amount?: string;
+
+        /**
+         * The description of the transaction to show in the drop-in UI on the
+         * summary row.
+         * Defaults to empty string.
+         */
+        primaryDescription?: string;
+
+        /**
+         * The description of the transaction to show in the drop-in UI on the
+         * summary row.
+         * Defaults to empty string.
+         */
+        secondaryDescription?: string;
     }
 
     /**
