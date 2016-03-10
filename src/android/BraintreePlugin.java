@@ -208,6 +208,12 @@ public final class BraintreePlugin extends CordovaPlugin {
             return;
         }
 
+        if (paymentMethodNonce == null) {
+            dropInUICallbackContext.error("Result was not RESULT_CANCELED, but no PaymentMethodNonce was returned from the Braintree SDK.");
+            dropInUICallbackContext = null;
+            return;
+        }
+
         Map<String, Object> resultMap = this.getPaymentUINonceResult(paymentMethodNonce);
         dropInUICallbackContext.success(new JSONObject(resultMap));
         dropInUICallbackContext = null;
