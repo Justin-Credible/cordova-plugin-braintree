@@ -142,9 +142,9 @@ NSString *dropInUIcallbackId;
 
     dropInViewController.navigationItem.leftBarButtonItem = cancelButton;
     dropInViewController.paymentRequest.callToActionText = ctaText;
-    dropInViewController.paymentRequest.amount = amount;
-    dropInViewController.paymentRequest.summaryTitle = primaryDescription;
-    dropInViewController.paymentRequest.summaryDescription = secondaryDescription;
+    dropInViewController.paymentRequest.displayAmount = [amount isEqualToString:@""] ? nil :  amount;
+    dropInViewController.paymentRequest.summaryTitle = [primaryDescription isEqualToString:@""] ? nil : primaryDescription;
+    dropInViewController.paymentRequest.summaryDescription = [secondaryDescription isEqualToString:@""] ? nil : secondaryDescription;
     
     // Setup the dialog's title.
     dropInViewController.title = title;
