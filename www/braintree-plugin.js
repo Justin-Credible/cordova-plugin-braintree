@@ -34,6 +34,7 @@ BraintreePlugin.initialize = function initialize(token, successCallback, failure
 /**
  * Shows Braintree's drop-in payment UI.
  * 
+ * @param {object} options - The options used to control the drop-in payment UI.
  * @param [function] successCallback - The success callback for this asynchronous function; receives a result object.
  * @param [function] failureCallback - The failure callback for this asynchronous function; receives an error string.
  */
@@ -55,10 +56,25 @@ BraintreePlugin.presentDropInPaymentUI = function showDropInUI(options, successC
         options.ctaText = "Select Payment Method";
     };
 
+    if (typeof(options.amount) !== "string") {
+        options.amount = "";
+    };
+
+    if (typeof(options.primaryDescription) !== "string") {
+        options.primaryDescription = "";
+    };
+
+    if (typeof(options.secondaryDescription) !== "string") {
+        options.secondaryDescription = "";
+    };
+
     var pluginOptions = [
         options.cancelText,
         options.title,
-        options.ctaText
+        options.ctaText,
+        options.amount,
+        options.primaryDescription,
+        options.secondaryDescription
     ];
 
     exec(successCallback, failureCallback, PLUGIN_ID, "presentDropInPaymentUI", pluginOptions);

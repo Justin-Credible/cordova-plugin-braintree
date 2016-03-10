@@ -100,8 +100,8 @@ public final class BraintreePlugin extends CordovaPlugin {
         }
 
         // Ensure we have the correct number of arguments.
-        if (args.length() != 3) {
-            callbackContext.error("cancelText, ctaText and title are required.");
+        if (args.length() != 6) {
+            callbackContext.error("cancelText, ctaText, title, amount, primaryDescription, and secondaryDescription are required.");
             return;
         }
 
@@ -126,9 +126,29 @@ public final class BraintreePlugin extends CordovaPlugin {
             callbackContext.error("ctaText is required.");
         }
 
+        String amount = args.getString(3);
+
+        if (amount == null) {
+            callbackContext.error("amount is required.");
+        }
+
+        String primaryDescription = args.getString(4);
+
+        if (primaryDescription == null) {
+            callbackContext.error("primaryDescription is required.");
+        }
+
+        String secondaryDescription = args.getString(5);
+
+        if (secondaryDescription == null) {
+            callbackContext.error("secondaryDescription is required.");
+        }
+
         paymentRequest.actionBarTitle(title);
-        //paymentRequest.cancelButtonText(cancelText);//TODO
         paymentRequest.submitButtonText(ctaText);
+        paymentRequest.amount(amount);
+        paymentRequest.primaryDescription(primaryDescription);
+        paymentRequest.secondaryDescription(secondaryDescription);
 
         this.cordova.setActivityResultCallback(this);
         this.cordova.startActivityForResult(this, paymentRequest.getIntent(this.cordova.getActivity()), DROP_IN_REQUEST);
@@ -184,6 +204,12 @@ public final class BraintreePlugin extends CordovaPlugin {
             Map<String, Object> resultMap = new HashMap<String, Object>();
             resultMap.put("userCancelled", true);
             dropInUICallbackContext.success(new JSONObject(resultMap));
+            dropInUICallbackContext = null;
+            return;
+        }
+
+        if (paymentMethodNonce == null) {
+            dropInUICallbackContext.error("Result was not RESULT_CANCELED, but no PaymentMethodNonce was returned from the Braintree SDK.");
             dropInUICallbackContext = null;
             return;
         }
