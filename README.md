@@ -16,6 +16,8 @@ Alternatively, you can install the latest version of the plugin directly from gi
 
     cordova plugin add https://github.com/Justin-Credible/cordova-plugin-braintree
 
+NOTE: This plugin uses a build hook that uses `execSync()` which requires Node 0.12 or newer.
+
 # Usage
 
 The plugin is available via a global variable named `BraintreePlugin`. It exposes the following properties and functions.
