@@ -1,27 +1,33 @@
 #import <Foundation/Foundation.h>
-#import "PayPalOneTouchRequest.h"
-#import "PayPalOneTouchCore.h"
+#import "PPOTRequest.h"
+#import "PPOTCore.h"
 
 @interface BTPayPalRequestFactory : NSObject
 
-/// Creates PayPal Express Checkout requests
-- (PayPalOneTouchCheckoutRequest *)checkoutRequestWithApprovalURL:(NSURL *)approvalURL
-                                                         clientID:(NSString *)clientID
-                                                      environment:(NSString *)environment
-                                                callbackURLScheme:(NSString *)callbackURLScheme;
+/*!
+ @brief Creates PayPal Express Checkout requests
+*/
+- (PPOTCheckoutRequest *)checkoutRequestWithApprovalURL:(NSURL *)approvalURL
+                                               clientID:(NSString *)clientID
+                                            environment:(NSString *)environment
+                                      callbackURLScheme:(NSString *)callbackURLScheme;
 
-/// Creates PayPal Billing Agreement requests
-- (PayPalOneTouchBillingAgreementRequest *)billingAgreementRequestWithApprovalURL:(NSURL *)approvalURL
-                                                                         clientID:(NSString *)clientID
-                                                                      environment:(NSString *)environment
-                                                                callbackURLScheme:(NSString *)callbackURLScheme;
+/*!
+ @brief Creates PayPal Billing Agreement requests
+*/
+- (PPOTBillingAgreementRequest *)billingAgreementRequestWithApprovalURL:(NSURL *)approvalURL
+                                                               clientID:(NSString *)clientID
+                                                            environment:(NSString *)environment
+                                                      callbackURLScheme:(NSString *)callbackURLScheme;
 
-/// Creates PayPal Future Payment requests
-- (PayPalOneTouchAuthorizationRequest *)requestWithScopeValues:(NSSet *)scopeValues
-                                                    privacyURL:(NSURL *)privacyURL
-                                                  agreementURL:(NSURL *)agreementURL
-                                                      clientID:(NSString *)clientID
-                                                   environment:(NSString *)environment
-                                             callbackURLScheme:(NSString *)callbackURLScheme;
+/*!
+ @brief Creates PayPal Future Payment requests
+*/
+- (PPOTAuthorizationRequest *)requestWithScopeValues:(NSSet *)scopeValues
+                                          privacyURL:(NSURL *)privacyURL
+                                        agreementURL:(NSURL *)agreementURL
+                                            clientID:(NSString *)clientID
+                                         environment:(NSString *)environment
+                                   callbackURLScheme:(NSString *)callbackURLScheme;
 
 @end

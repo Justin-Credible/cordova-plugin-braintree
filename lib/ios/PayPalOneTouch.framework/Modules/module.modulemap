@@ -1,0 +1,6 @@
+framework module PayPalOneTouch {
+  umbrella header "PayPalOneTouch.h"
+
+  export *
+  module * { export * }
+}

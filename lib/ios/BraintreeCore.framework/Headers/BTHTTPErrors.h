@@ -1,15 +1,23 @@
 #import <Foundation/Foundation.h>
 
-/// The error domain for BTHTTP errors
+/*!
+ @brief The error domain for BTHTTP errors
+*/
 extern NSString * const BTHTTPErrorDomain;
 
-/// Key for userInfo dictionary that contains the NSHTTPURLResponse from server when it returns an HTTP error
+/*!
+ @brief Key for userInfo dictionary that contains the NSHTTPURLResponse from server when it returns an HTTP error
+*/
 extern NSString * const BTHTTPURLResponseKey;
 
-/// Key for userInfo dictionary that contains the BTJSON body of the HTTP error response
+/*!
+ @brief Key for userInfo dictionary that contains the BTJSON body of the HTTP error response
+*/
 extern NSString * const BTHTTPJSONResponseBodyKey;
 
-/// BTHTTP error codes
+/*!
+ @brief BTHTTP error codes
+*/
 typedef NS_ENUM(NSInteger, BTHTTPErrorCode) {
     /// Unknown error (reserved)
     BTHTTPErrorCodeUnknown = 0,
@@ -20,5 +28,7 @@ typedef NS_ENUM(NSInteger, BTHTTPErrorCode) {
     /// The response was a 403 server error
     BTHTTPErrorCodeServerError,
     /// The BTHTTP instance was missing a base URL
-    BTHTTPErrorCodeMissingBaseURL
+    BTHTTPErrorCodeMissingBaseURL,
+    /// The response was a 429, indicating a rate limiting error
+    BTHTTPErrorCodeRateLimitError
 };
