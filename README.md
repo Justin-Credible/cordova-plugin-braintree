@@ -10,11 +10,7 @@ This version of the plugin uses versions `4.1.3` (iOS) and `2.1.2` (Android) of 
 
 To add the plugin to your Cordova project, simply add the plugin from the npm registry:
 
-    cordova plugin add cordova-plugin-braintree
-
-Alternatively, you can install the latest version of the plugin directly from git:
-
-    cordova plugin add https://github.com/Justin-Credible/cordova-plugin-braintree
+    cordova plugin add https://github.com/akilananb/cordova-plugin-braintree.git
 
 NOTE: This plugin uses a build hook that uses `execSync()` which requires Node 0.12 or newer.
 
