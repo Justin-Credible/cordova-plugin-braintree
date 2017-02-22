@@ -6,7 +6,7 @@ I ended up using the JavaScript version of the Braintree SDK in my project, and 
 
 This is a [Cordova](http://cordova.apache.org/) plugin for the [Braintree](https://www.braintreepayments.com/) mobile payment processing SDK.
 
-This version of the plugin uses versions `4.1.3` (iOS) and `2.1.2` (Android) of the Braintree mobile SDK. Documentation for the Braintree SDK can be found [here](https://developers.braintreepayments.com/start/overview).
+This version of the plugin uses versions `4.7.3` (iOS) and `2.3.12` (Android) of the Braintree mobile SDK. Documentation for the Braintree SDK can be found [here](https://developers.braintreepayments.com/start/overview).
 
 **This plugin is still in development.**
 

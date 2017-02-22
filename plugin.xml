@@ -2,7 +2,7 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
         xmlns:android="http://schemas.android.com/apk/res/android"
         id="cordova-plugin-braintree"
-        version="0.5.1">
+        version="0.5.2">
 
     <name>Braintree Plugin</name>
 
@@ -46,14 +46,18 @@
         <header-file src="src/ios/BraintreePlugin.h" />
         <source-file src="src/ios/BraintreePlugin.m" />
 
-        <framework src="lib/ios/BraintreeVenmo.framework" custom="true" />
-        <framework src="lib/ios/BraintreeUI.framework" custom="true" />
-        <framework src="lib/ios/BraintreePayPal.framework" custom="true" />
-        <framework src="lib/ios/BraintreeDataCollector.framework" custom="true" />
-        <framework src="lib/ios/BraintreeCore.framework" custom="true" />
-        <framework src="lib/ios/BraintreeCard.framework" custom="true" />
-        <framework src="lib/ios/BraintreeApplePay.framework" custom="true" />
         <framework src="lib/ios/Braintree3DSecure.framework" custom="true" />
+        <framework src="lib/ios/BraintreeApplePay.framework" custom="true" />
+        <framework src="lib/ios/BraintreeCard.framework" custom="true" />
+        <framework src="lib/ios/BraintreeCore.framework" custom="true" />
+        <framework src="lib/ios/BraintreeDataCollector.framework" custom="true" />
+        <framework src="lib/ios/BraintreePayPal.framework" custom="true" />
+        <framework src="lib/ios/BraintreeUI.framework" custom="true" />
+        <framework src="lib/ios/BraintreeUnionPay.framework" custom="true" />
+        <framework src="lib/ios/BraintreeVenmo.framework" custom="true" />
+        <framework src="lib/ios/PayPalDataCollector.framework" custom="true" />
+        <framework src="lib/ios/PayPalOneTouch.framework" custom="true" />
+        <framework src="lib/ios/PayPalUtils.framework" custom="true" />
 
     </platform>
 

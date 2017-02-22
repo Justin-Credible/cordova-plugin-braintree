@@ -9,6 +9,13 @@ const fs = require('fs'),
 
 module.exports = function(context) {
 
+    if (context.opts.plugin.platform !== "ios") {
+        console.log("cordova-plugin-braintree: Skipping modification of XCode project for Braintree SDK for non-iOS platform.");
+        return;
+    }
+
+    console.log("cordova-plugin-braintree: Modifying XCode project for Braintree SDK...");
+
     // Temporary hack to run npm install on this plugin's package.json dependencies.
     var pluginDir = path.resolve(__dirname, "../");
 
@@ -108,7 +115,7 @@ module.exports = function(context) {
     const frameworkFilesToEmbed = fromDir(pluginPathInPlatformIosDir ,'.framework', false, true);
     process.chdir('../../');
 
-    if(!frameworkFilesToEmbed.length) return;
+    if(!frameworkFilesToEmbed || !frameworkFilesToEmbed.length) return;
 
     myProj.addBuildPhase(frameworkFilesToEmbed, 'PBXCopyFilesBuildPhase', groupName, myProj.getFirstTarget().uuid, 'frameworks');
 
