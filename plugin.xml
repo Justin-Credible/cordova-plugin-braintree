@@ -28,9 +28,22 @@
             </feature>
         </config-file>
 
+
+        <config-file target="AndroidManifest.xml" parent="application">
+    		<activity android:name="com.braintreepayments.api.BraintreeBrowserSwitchActivity" android:launchMode="singleTask">
+    			<intent-filter>
+    				<action android:name="android.intent.action.VIEW" />
+    				<category android:name="android.intent.category.DEFAULT" />
+    				<category android:name="android.intent.category.BROWSABLE" />
+    				<data android:scheme="${applicationId}.braintree" />
+    			</intent-filter>
+    		</activity>
+        </config-file>
+
         <source-file src="src/android/BraintreePlugin.java" target-dir="src/net/justincredible" />
 
         <framework src="src/android/build-extras.gradle" custom="true" type="gradleReference" />
+
 
     </platform>
 
@@ -42,6 +55,25 @@
                 <param name="ios-package" value="BraintreePlugin" />
             </feature>
         </config-file>
+
+        <config-file target="*-Info.plist" parent="CFBundleURLTypes">
+           <array>
+             <dict>
+               <key>CFBundleURLSchemes</key>
+               <array>
+                 <string>${PRODUCT_BUNDLE_IDENTIFIER}.payments</string>
+               </array>
+             </dict>
+           </array>
+         </config-file>
+
+         <config-file target="*-Info.plist" parent="LSApplicationQueriesSchemes">
+           <array>
+             <string>com.paypal.ppclient.touch.v1</string>
+             <string>com.paypal.ppclient.touch.v2</string>
+             <string>com.venmo.touch.v2</string>
+           </array>
+         </config-file>
 
         <header-file src="src/ios/BraintreePlugin.h" />
         <source-file src="src/ios/BraintreePlugin.m" />
