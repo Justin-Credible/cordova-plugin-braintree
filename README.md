@@ -2,6 +2,8 @@
 
 I ended up using the JavaScript version of the Braintree SDK in my project, and therefore have never gotten back to finishing this plugin. Please check out the fork by [Taracque](https://github.com/Taracque), which is located at: https://github.com/Taracque/cordova-plugin-braintree
 
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
+
 # Braintree Cordova Plugin
 
 This is a [Cordova](http://cordova.apache.org/) plugin for the [Braintree](https://www.braintreepayments.com/) mobile payment processing SDK.
